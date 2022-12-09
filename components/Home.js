@@ -27,7 +27,7 @@ function Home() {
       return;
     }
 
-    fetch(`https://hackatweet-backend-nine.vercel.app/${user.token}`)
+    fetch(`https://hackatweet-backend-nine.vercel.app/tweets/all/${user.token}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
@@ -41,7 +41,7 @@ function Home() {
   };
 
   const handleSubmit = () => {
-    fetch('https://hackatweet-backend-nine.vercel.app', {
+    fetch('https://hackatweet-backend-nine.vercel.app/tweets', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, content: newTweet }),
