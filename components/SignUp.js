@@ -20,8 +20,9 @@ function SignUp() {
   const [password, setPassword] = useState('');
 
   const handleSubmit = () => {
-    fetch('https://hackatweet-backend-nine.vercel.app/users/signup', {
-      method: 'POST',
+     fetch('https://hackatweet-backend-nine.vercel.app/users/signup', {
+    // fetch('http://localhost:3000/users/signup', {
+        method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName, username, password }),
     }).then(response => response.json())
@@ -30,6 +31,7 @@ function SignUp() {
       });
   };
 
+  
   return (
     <div className={styles.container}>
       <Image src="/logo.png" alt="Logo" width={50} height={50} />
